@@ -91,7 +91,7 @@ $\frac {D\boldsymbol{\upsilon}}{Dt}$ is the material derivative of $\boldsymbol{
 \end{equation}
 where $f_x$ and $f_y$ denote the components of the body force vector measured per unit volume along the $x$ and $y$ directions. respectively. here for the sake of simplicity we consider static problem\footnote{Applying time discritization into HiperLife is explained in the transient heat transfer tutorial.}.
 \section{Weak Form} \label{sec: wf}
-The starting point for the development of the finite element models of Eq. (\ref{eq1}) is their weak forms. The variation formulation of our model problem can be introduced as find $\mathbf{u} \in V$ such that
+The starting point for the development of the finite element models of Eq. (\ref{eq2}) is their weak forms. The variation formulation of our model problem can be introduced as find $\mathbf{u} \in V$ such that
 \begin{equation}\label{eq4}
 	\begin{aligned}
 		\mathcal{F}(\mathbf{u};v) = 0 \quad \forall v \in \hat{V}\thinspace.
@@ -147,7 +147,7 @@ where $\sigma_{ij}$ and $C_{ijkl}$ are the components of the Cauchy stress tenso
 		\end{Bmatrix}
 	\end{aligned}
 \end{equation}
-where $c_{11}=c_{22}=\frac{E}{1-\nu^2}$ and $c_{12}=\nu c_{11}$ and $c_{33} = \frac{1-\nu}{2}c_{11}$.  Considering ($hdA=dV$)  and $\mathbf{u} = \{u_x, u_y\}$ we can rewrite The Eq. (\ref{eq6}) in an explicit form as \cite{reddy2005introduction}
+where $c_{11}=c_{22}=\frac{E}{1-\nu^2}$ and $c_{12}=\nu c_{11}$ and $c_{33} = \frac{1-\nu}{2}c_{11}$.  Considering ($hdA=dV$)  and $\mathbf{u} = \{u_x, u_y\}$ we can rewrite The Eq. (\ref{eq7}) in an explicit form as \cite{reddy2005introduction}
 \begin{equation}\label{eq10}
 	\begin{aligned}[b]
 		&\int_{\Omega} h \left[\frac{\partial v}{\partial x}\left(c_{11}\frac{\partial u_x}{\partial x} + c_{12}\frac{\partial u_y}{\partial y} \right) + c_{33}\frac{\partial v}{\partial y}\left(\frac{\partial u_x}{\partial y} + \frac{\partial u_y}{\partial x} \right)\right]  \ dA = 	\int_{\Omega} h v f_x \ dA + \int_{\Gamma} h v t_x \ dS \thinspace,\\
@@ -161,7 +161,7 @@ Since we are developing the Ritz-Galerkin finite element model, the choice of th
 		u(x,y)= \sum_{m=1}^{M} \phi_m(x,y) \mathbf{u}^m= \boldsymbol{\Phi}^T\mathbf{u} \thinspace,
 	\end{aligned}
 \end{equation}
-By substitution of Eq. (\ref{eq11}) to Eq. (\ref{eq10})and writing the resulting algebraic equations in matrix form, we obtain
+By substitution of Eq. (\ref{eq11}) to Eq. (\ref{eq10}) and writing the resulting algebraic equations in matrix form, we obtain
 \begin{equation}\label{eq12}
 	\begin{aligned}[b]
 		\begin{bmatrix}
@@ -190,7 +190,7 @@ where
 \end{equation}
 The elemental representation of the vector and matrix required for implementation in the Hiperlife would be
 like
-\begin{equation}\label{eq13}
+\begin{equation}\label{eq14}
 	\begin{aligned}[b]
 		Ak(i,0,j,0)&=K^{11}_{ij} \quad , \quad Ak(i,0,j,1)=K^{12}_{ij}\\
 		Ak(i,1,j,0)&=K^{21}_{ij}\quad , \quad Ak(i,1,j,1)=K^{22}_{ij} \\
@@ -199,7 +199,7 @@ like
 \end{equation}
 \section{Choice of Elements} \label{sec: coe}
 Thus, for this simple problem every Lagrange and serendipity family of interpolation functions are admissible for the interpolation of the temperature field, our choice is would be linear quadrilateral element.Linear  Quadrilateral Elements is the simplest quadrilateral element consists of four nodes. The associated interpolation functions for geometry and ﬁeld variables are bilinear.
-\begin{equation}\label{eq11}
+\begin{equation}\label{eq15}
 	\begin{aligned}[b]
 		\boldsymbol{\Phi}_{I}(\xi, \eta) = \frac{1}{4}(1+\xi_I\xi)(1+\eta_I\eta) \quad (I \ \text{from} \ 1 \ \text{to} \ 4)
 	\end{aligned}

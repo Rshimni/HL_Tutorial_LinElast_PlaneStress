@@ -7,13 +7,13 @@ citecolor=green,urlcolor=red]{hyperref}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\usepackage{graphicx}
 \usepackage{graphics}
-\usepackage{subcaption}
 \usepackage{epsfig}
 \usepackage{epstopdf}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{booktabs}
 \usepackage{color,soul}
+\usepackage{subfig}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amsmath}
 \usepackage{cleveref}
@@ -496,17 +496,14 @@ void RHS_Border(hiperlife::FillStructure& fillStr)
 }
 \end{lstlisting}
 \section{Results} \label{sec: rst}
-In this section we present our solution. Figures \ref{fig_Rs1} and \ref{fig_Rs1} show the displacement contour in deformed configuration.
-
+In this section we present our solution. Figure \ref{fig_Rs1} shows the displacement contour in deformed configuration.
 \begin{figure}[htbp]
 	\centering
-		\includegraphics[width=\textwidth]{Figures/result1.png}
-		\caption{Displacement in y-direction.}
-		\label{fig_Rs1}
-	\hfill
-		\includegraphics[width=\textwidth]{Figures/result2.png}
-		\caption{Displacement in x-direction.}
-	\label{fig_Rs2}
+	\subfloat[\centering Displacement in y-direction]{\includegraphics[width=220pt]{Figures/result1.png}}%
+	\qquad
+	\subfloat[\centering Displacement in x-direction]{\includegraphics[width=220pt]{Figures/result2.png}}%
+	\caption{Displacement of cantilever under the external load}%
+	\label{fig_Rs1}%
 \end{figure}
 
 \bibliographystyle{unsrt}
